@@ -1,9 +1,12 @@
-import { House } from "lucide-react";
+import { House, SquarePenIcon, File, FileChartColumnIcon, Search, BotIcon, Users, Globe } from "lucide-react";
+import Image from "next/image";
+import Logo from "./assets/logo-white.png"
+
 export default function Home() {
   return (
     <div className="flex flex-col h-screen overflow-hidden p-8">
       <header className="flex gap-6 flex-wrap items-center justify-center p-4 border border-purple-600">
-        Header
+        <Image src={Logo} width={200} height={100} alt="Logo RecuperaTax" />
       </header>
       <div className="flex flex-1 overflow-hidden">
 
@@ -12,6 +15,34 @@ export default function Home() {
             <div className="flex flex-row gap-2">
               <span> <House /></span>
               <span>Início</span>
+            </div>
+            <div className="flex flex-row gap-2">
+              <span> <SquarePenIcon /></span>
+              <span>Cadastro</span>
+            </div>
+            <div className="flex flex-row gap-2">
+              <span> <File /></span>
+              <span>Arquivos Fiscais</span>
+            </div>
+            <div className="flex flex-row gap-2">
+              <span> <FileChartColumnIcon /></span>
+              <span>Relatório</span>
+            </div>
+            <div className="flex flex-row gap-2">
+              <span> <Search /></span>
+              <span>Diagnóstico Express</span>
+            </div>
+            <div className="flex flex-row gap-2">
+              <span> <BotIcon /></span>
+              <span>Consultor IA</span>
+            </div>
+            <div className="flex flex-row gap-2">
+              <span> <Users /></span>
+              <span>Área de Membros</span>
+            </div>
+            <div className="flex flex-row gap-2">
+              <span> <Globe /></span>
+              <span>Abrir Chamado</span>
             </div>
         </aside>
 
