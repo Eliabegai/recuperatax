@@ -97,11 +97,11 @@ const Sidebar = () => {
 
             { 
             i?.subItens ?
-              i?.subItens.map((j, index) => {
+              i?.subItens.map((j, k) => {
                 return(
                   openMenus[i.menu] &&
                     (
-                      <div key={index} className="flex w-48 justify-start items-center ml-8 space-y-2 gap-2 border-b border-zinc-500 hover:text-zinc-400 cursor-pointer text-sm">
+                      <div key={k} className="flex w-48 justify-start items-center ml-8 space-y-2 gap-2 border-b border-zinc-500 hover:text-zinc-400 cursor-pointer text-sm">
                         <span>{j.icon}</span>
                         <span>{j.span}</span>
                       </div>
