@@ -1,7 +1,6 @@
 "use client"
 import { useState } from "react";
 import { Home, SquarePenIcon, File, FileChartColumnIcon, Search, BotIcon, Users, ChevronDown, UserRoundPenIcon, Ban } from "lucide-react";
-import ItemSidebar from "./ItemSidebar";
 
 
 const Sidebar = () => {
@@ -23,11 +22,11 @@ const Sidebar = () => {
       menu: "cadastro",
       subItens: [
         {
-          icon: <UserRoundPenIcon />,
+          icon: <UserRoundPenIcon size={16} />,
           span: "Cadastro pessoa Física"
         },
         {
-          icon: <UserRoundPenIcon />,
+          icon: <UserRoundPenIcon size={16} />,
           span: "Cadastro pessoa Juríca"
         },
       ]
@@ -38,11 +37,11 @@ const Sidebar = () => {
       menu: "arquivosFiscais",
       subItens: [
         {
-          icon: <UserRoundPenIcon />,
+          icon: <UserRoundPenIcon size={16} />,
           span: "Pessoa Física"
         },
         {
-          icon: <UserRoundPenIcon />,
+          icon: <UserRoundPenIcon size={16} />,
           span: "Pessoa Juríca"
         },
       ]
@@ -68,7 +67,7 @@ const Sidebar = () => {
       menu: "areaMembros",
       subItens: [
         {
-          icon: <Ban />,
+          icon: <Ban size={16} />,
           span: "Em desenvolvimento"
         }
       ]
@@ -79,100 +78,42 @@ const Sidebar = () => {
     <aside className="w-72 bg-sky-900 text-zinc-300 h-screen p-4">
 
       {
-        menu.map((i, index) => {
+        menu?.map((i, index) => {
           return(
           <>
             <button 
               key={index} 
-              onClick={() => toggleMenu("cadastros")} 
-              className="flex w-full justify-between items-center hover:bg-blue-700"
+              onClick={() => toggleMenu(i.menu)} 
+              className="flex w-full justify-between items-center hover:bg-sky-950 focus:text-emerald-500 hover:text-emerald-400"
             >
-              <ItemSidebar>
-                {i.icon}
-                <span>{i.span}</span>
-              </ItemSidebar>
-              <ChevronDown className={`transition ${openMenus["cadastros"] ? "rotate-180" : ""}`} />
+              <div key={index} className="flex items-center space-x-3 p-3 hover:bg-sky-950">
+                {i?.icon}
+                <span>{i?.span}</span>
+              </div>
+               { i?.subItens ? (
+                  <ChevronDown className={`transition ${openMenus[i.menu] ? "rotate-180" : ""}`} />
+                ) : ("")}
             </button>
-            {/* {
-            i.subItens && openMenus[i.menu] && (
-            <div className="ml-8 space-y-2">
-              <p className="hover:text-gray-300 cursor-pointer">{i.subItens.span}</p>
-              <p className="hover:text-gray-300 cursor-pointer">Subitem 2</p>
-            </div>
-            )
-            } */}
+
+            { 
+            i?.subItens ?
+              i?.subItens.map((j, index) => {
+                return(
+                  openMenus[i.menu] &&
+                    (
+                      <div key={index} className="flex w-48 justify-start items-center ml-8 space-y-2 gap-2 border-b border-zinc-500 hover:text-zinc-400 cursor-pointer text-sm">
+                        <span>{j.icon}</span>
+                        <span>{j.span}</span>
+                      </div>
+                    )
+                )
+              }) : ("")
+            }
           </>
           )
         })
       }
 
-      {/* Cadastros */}
-      <div>
-        <button onClick={() => toggleMenu("cadastros")} className="flex w-full justify-between items-center p-3 hover:bg-blue-700">
-          <div className="flex items-center space-x-3">
-            <SquarePenIcon />
-            <span>Cadastros</span>
-          </div>
-          <ChevronDown className={`transition ${openMenus["cadastros"] ? "rotate-180" : ""}`} />
-        </button>
-        {openMenus["cadastros"] && (
-          <div className="ml-8 space-y-2">
-            <p className="hover:text-gray-300 cursor-pointer">Subitem 1</p>
-            <p className="hover:text-gray-300 cursor-pointer">Subitem 2</p>
-          </div>
-        )}
-      </div>
-
-      {/* Arquivos Fiscais */}
-      <div>
-        <button onClick={() => toggleMenu("arquivosFiscais")} className="flex w-full justify-between items-center p-3 hover:bg-blue-700">
-          <div className="flex items-center space-x-3">
-            <File />
-            <span>Arquivos Fiscais</span>
-          </div>
-          <ChevronDown className={`transition ${openMenus["arquivosFiscais"] ? "rotate-180" : ""}`} />
-        </button>
-        {openMenus["arquivosFiscais"] && (
-          <div className="ml-8 space-y-2">
-            <p className="hover:text-gray-300 cursor-pointer">Subitem 1</p>
-            <p className="hover:text-gray-300 cursor-pointer">Subitem 2</p>
-          </div>
-        )}
-      </div>
-
-      {/* Relatório */}
-      <div>
-        <button onClick={() => toggleMenu("relatorio")} className="flex w-full justify-between items-center p-3 hover:bg-blue-700">
-          <div className="flex items-center space-x-3">
-            <FileChartColumnIcon />
-            <span>Relatório</span>
-          </div>
-          <ChevronDown className={`transition ${openMenus["relatorio"] ? "rotate-180" : ""}`} />
-        </button>
-      </div>
-
-      {/* Diagnóstico Express */}
-      <div className="flex items-center space-x-3 p-3 hover:bg-blue-700 cursor-pointer">
-        <Search />
-        <span>Diagnóstico Express</span>
-      </div>
-
-      {/* Consultor IA */}
-      <div className="flex items-center space-x-3 p-3 hover:bg-blue-700 cursor-pointer">
-        <BotIcon />
-        <span>Consultor IA</span>
-      </div>
-
-      {/* Área de Membros */}
-      <div>
-        <button onClick={() => toggleMenu("areaMembros")} className="flex w-full justify-between items-center p-3 hover:bg-blue-700">
-          <div className="flex items-center space-x-3">
-            <Users />
-            <span>Área de Membros</span>
-          </div>
-          <ChevronDown className={`transition ${openMenus["areaMembros"] ? "rotate-180" : ""}`} />
-        </button>
-      </div>
     </aside>
   );
 };
