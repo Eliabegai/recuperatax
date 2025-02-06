@@ -1,6 +1,7 @@
 "use client"
 import { useState } from "react";
 import { Home, SquarePenIcon, File, FileChartColumnIcon, Search, BotIcon, Users, ChevronDown, UserRoundPenIcon, Ban, Globe } from "lucide-react";
+import Link from "next/link";
 
 
 const Sidebar = () => {
@@ -10,11 +11,13 @@ const Sidebar = () => {
     setOpenMenus((prev) => ({ ...prev, [menu]: !prev[menu] }));
   };
 
+
+
   const menu =[
     {
       icon: <Home />,
       span: "Inicio",
-      menu: "inicio"
+      menu: "/"
     },
     {
       icon: <SquarePenIcon />,
@@ -81,9 +84,10 @@ const Sidebar = () => {
         menu?.map((i, index) => {
           return(
           <>
-            <button 
+            <Link 
               key={index} 
               onClick={() => toggleMenu(i.menu)} 
+              href={`/${i.menu}`}
               className="flex w-full justify-between items-center hover:bg-sky-950 focus:text-emerald-500 hover:text-emerald-400"
             >
               <div key={index} className="flex items-center space-x-3 p-3 hover:bg-sky-950">
@@ -93,7 +97,7 @@ const Sidebar = () => {
                { i?.subItens ? (
                   <ChevronDown className={`transition ${openMenus[i.menu] ? "rotate-180" : ""}`} />
                 ) : ("")}
-            </button>
+            </Link>
 
             { 
             i?.subItens ?
