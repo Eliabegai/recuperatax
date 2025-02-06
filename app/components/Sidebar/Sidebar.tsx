@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react";
-import { Home, SquarePenIcon, File, FileChartColumnIcon, Search, BotIcon, Users, ChevronDown, UserRoundPenIcon, Ban } from "lucide-react";
+import { Home, SquarePenIcon, File, FileChartColumnIcon, Search, BotIcon, Users, ChevronDown, UserRoundPenIcon, Ban, Globe } from "lucide-react";
 
 
 const Sidebar = () => {
@@ -75,7 +75,7 @@ const Sidebar = () => {
   ]
 
   return (
-    <aside className="w-72 bg-sky-900 text-zinc-300 h-screen p-4">
+    <aside className="flex flex-col items-center w-72 bg-sky-900 text-zinc-300 h-screen p-4">
 
       {
         menu?.map((i, index) => {
@@ -113,6 +113,16 @@ const Sidebar = () => {
           )
         })
       }
+
+      <button 
+        onClick={() => toggleMenu("abrir chamado")} 
+        className="flex relative bottom-0 w-full justify-between items-center hover:bg-sky-950 focus:text-emerald-500 hover:text-emerald-400"
+      >
+        <div className="flex items-center space-x-3 p-3 hover:bg-sky-950">
+          <Globe />
+          <span>Abrir Chamado</span>
+        </div>
+      </button>
 
     </aside>
   );
