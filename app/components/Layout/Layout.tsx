@@ -1,6 +1,7 @@
 import Image from "next/image";
-import Sidebar from "../Sidebar/Sidebar";
+// import Sidebar from "../Sidebar/Sidebar";
 import Logo from "../../assets/logo-white.png"
+import { BotIcon } from "lucide-react";
 
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -11,8 +12,17 @@ export default function Layout(props:any) {
         <Image src={Logo} width={200} height={100} alt="Logo RecuperaTax" />
       </header>
       <div className="flex flex-1 overflow-hidden">
-        <Sidebar />
-        <main className="flex flex-1 flex-col gap-8 items-center sm:items-start p-8 overflow-auto border border-green-600">
+        {/* <Sidebar /> */}
+        <div className="flex flex-col items-center w-20 gap-4 bg-sky-900 text-zinc-300 h-screen p-4">
+          <BotIcon />
+          <BotIcon />
+          <BotIcon />
+          <BotIcon />
+          <BotIcon />
+          <BotIcon />
+          <BotIcon />
+        </div>
+        <main className="flex flex-col flex-1 gap-8 items-center sm:items-start p-8 overflow-auto border border-green-600">
           {props.children}
         </main>
       </div>
