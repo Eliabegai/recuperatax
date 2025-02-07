@@ -11,8 +11,6 @@ const Sidebar = () => {
     setOpenMenus((prev) => ({ ...prev, [menu]: !prev[menu] }));
   };
 
-
-
   const menu =[
     {
       icon: <Home />,
