@@ -1,5 +1,5 @@
 import Image from "next/image";
-// import Sidebar from "../Sidebar/Sidebar";
+import Sidebar from "../Sidebar/Sidebar";
 import Logo from "../../assets/logo-white.png"
 import { BotIcon } from "lucide-react";
 
@@ -12,8 +12,8 @@ export default function Layout(props:any) {
         <Image src={Logo} width={200} height={100} alt="Logo RecuperaTax" />
       </header>
       <div className="flex flex-1 overflow-hidden">
-        {/* <Sidebar /> */}
-        <div className="flex flex-col items-center w-20 gap-4 bg-sky-900 text-zinc-300 h-screen p-4">
+        <Sidebar />
+        <div className="hidden flex-col items-center w-20 gap-4 bg-sky-900 text-zinc-300 h-screen p-4">
           <BotIcon />
           <BotIcon />
           <BotIcon />
