@@ -20,7 +20,7 @@ const Sidebar = () => {
     {
       icon: <SquarePenIcon />,
       span: "Cadastro",
-      menu: "cadastro",
+      menu: "empresas",
       subItens: [
         {
           icon: <UserRoundPenIcon size={16} />,
