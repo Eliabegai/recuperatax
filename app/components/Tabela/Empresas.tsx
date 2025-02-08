@@ -46,10 +46,10 @@ const empresas: Empresa[] = [
 
 export default function EmpresaTable() {
   return (
-    <div className="flex flex-1 flex-col w-full mx-auto p-2 overflow-x-auto gap-2 text-xs text-blue-900">
+    <div className="flex flex-col w-full p-2 gap-2 text-xs text-blue-900 overflow-auto">
       
           {empresas.map((empresa, index) => (
-            <div key={index} className="grid grid-cols-7 w-full border-b justify-between items-center border-slate-300 rounded-lg p-4">
+            <div key={index} className="grid grid-cols-7 w-full border-b justify-between bg-gray-100 items-center border-slate-300 rounded-lg p-4">
               <div className="col-span-3">
                 <div  className="flex flex-col w-72">
                   <span>Nome: <span className="font-bold">{empresa.nome}</span></span>
