@@ -87,7 +87,7 @@ const Sidebar = () => {
 
   return (
     <aside className={`flex flex-col items-center ${openSidebar ? "w-30" : "w-72"}  bg-sky-900 text-zinc-300 h-full`}>
-      <button className="flex justify-start items-center p-3 w-full hover:bg-sky-950 focus:text-emerald-500 hover:text-emerald-400" onClick={toggleSidebar}>
+      <button className="flex justify-start items-center p-3 w-full hover:bg-sky-950 focus:text-emerald-600 hover:text-emerald-500" onClick={toggleSidebar}>
         { openSidebar ? <Menu /> : <X /> }
       </button>
 
@@ -106,7 +106,7 @@ const Sidebar = () => {
                 key={index} 
                 onClick={() => toggleMenu(i.menu)} 
                 href={`/${i.menu}`}
-                className="flex w-full justify-between items-center hover:bg-sky-950 focus:text-emerald-500 hover:text-emerald-400"
+                className="flex w-full justify-between items-center hover:bg-sky-950 focus:text-emerald-600 hover:text-emerald-500"
               >
                 <div className="flex w-30 p-3 bg-sky-800 hover:bg-sky-950">{i?.icon}</div>
                 <div key={index} className="flex flex-1 justify-between items-center space-x-3 p-3 hover:bg-sky-950">
@@ -135,72 +135,6 @@ const Sidebar = () => {
             </div>
         ))
       }
-
-      {/* {
-        openSidebar ?
-        menu.map((i, index) => {
-          return(
-            <div key={index} className="flex w-full hover:bg-sky-950 focus:text-emerald-500 hover:text-emerald-400">
-              <Link 
-                onClick={() => toggleMenu(i.menu)}
-                href={`/${i.menu}`}
-                className="flex w-full justify-between items-center"
-              >
-              <div key={index} className="flex items-center space-x-3 p-3 hover:bg-sky-950">
-                {i?.icon}
-              </div>
-            </Link>
-            </div>
-          )
-        }) 
-        :
-        menu?.map((i, index) => {
-          return(
-          <>
-            <Link 
-              key={index} 
-              onClick={() => toggleMenu(i.menu)} 
-              href={`/${i.menu}`}
-              className="flex w-full justify-between items-center hover:bg-sky-950 focus:text-emerald-500 hover:text-emerald-400"
-            >
-              <div key={index} className="flex items-center space-x-3 p-3 hover:bg-sky-950">
-                {i?.icon}
-                <span>{i?.span}</span>
-              </div>
-               { i?.subItens ? (
-                  <ChevronDown className={`transition ${openMenus[i.menu] ? "rotate-180" : ""}`} />
-                ) : ("")}
-            </Link>
-            <button 
-              onClick={() => toggleMenu("abrir chamado")} 
-              className="flex relative bottom-0 w-full justify-between items-center hover:bg-sky-950 focus:text-emerald-500 hover:text-emerald-400"
-            >
-              <div className="flex items-center space-x-3 p-3 hover:bg-sky-950">
-                <Globe />
-                <span>Abrir Chamado</span>
-              </div>
-            </button>
-
-            { 
-            i?.subItens ?
-              i?.subItens.map((j, k) => {
-                return(
-                  openMenus[i.menu] &&
-                    (
-                      <div key={k} className="flex w-48 justify-start items-center ml-8 space-y-2 gap-2 border-b border-zinc-500 hover:text-zinc-400 cursor-pointer text-sm">
-                        <span>{j.icon}</span>
-                        <span>{j.span}</span>
-                      </div>
-                    )
-                )
-              })
-              :
-              ("")
-            }
-          </>
-          )
-        })
-      } */}
     </aside>
   );
 };

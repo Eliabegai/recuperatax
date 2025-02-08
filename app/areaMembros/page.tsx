@@ -24,8 +24,6 @@ const AreaMembros = () => {
     ))
   }, [])
 
-  console.log("sheets: ", sheets)
-
   return(
     <Layout>
       <div className="flex w-full overflow-x-auto">

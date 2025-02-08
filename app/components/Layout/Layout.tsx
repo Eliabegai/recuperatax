@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Sidebar from "../Sidebar/Sidebar";
 import Logo from "../../assets/logo-light-gray.png"
-import { Bell, BotIcon, User } from "lucide-react";
+import { Bell, User } from "lucide-react";
 import Link from "next/link";
 import { toast } from "sonner";
 
@@ -20,15 +20,6 @@ export default function Layout(props:any) {
       </header>
       <div className="flex flex-1 overflow-hidden">
         <Sidebar />
-        <div className="hidden flex-col items-center w-20 gap-4 bg-sky-900 text-zinc-300 h-screen p-4">
-          <BotIcon />
-          <BotIcon />
-          <BotIcon />
-          <BotIcon />
-          <BotIcon />
-          <BotIcon />
-          <BotIcon />
-        </div>
         <main className="flex flex-col flex-1 gap-8 items-center sm:items-start p-8 overflow-auto">
           {props.children}
         </main>

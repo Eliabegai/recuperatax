@@ -79,7 +79,6 @@ const Cadastro = () => {
   };
 
   const handleSubmit = () => {
-    console.log("Dados empresa: ", formData)
     if (validate()) {
       toast.success("Cadastrado com sucesso!")
       router.push("/empresas")
