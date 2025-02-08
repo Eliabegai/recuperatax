@@ -1,32 +1,15 @@
 "use client"
-import { useState } from "react"
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const CadastroEmpresa = ({onChange}: {onChange: (data:any) => void}) => {
+import { IFormData } from "@/app/cadastro/page";
 
-  const [formData, setFormData] = useState({
-    cnpj: "",
-    nome: "",
-    nomeFantasia: "",
-    contato: "",
-    email: "",
-    cep: "",
-    pais: "",
-    estado: "",
-    cidade: "",
-    bairro: "",
-    rua: "",
-    numero: "",
-    complemento: ""
-  })
+interface FormularioProps {
+  formData: IFormData;
+  setFormData: (data: Partial<IFormData>) => void;
+  errors: { [key: string]: string };
+}
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e?.target
-
-    const updatedData = { ...formData, [name]: value}
-    setFormData(updatedData)
-    onChange(updatedData)
-  }
+ 
+const CadastroEmpresa = ({ formData, setFormData, errors }: FormularioProps) => {
 
   return (
     <form className="flex flex-col w-full bg-gray-100 p-4 rounded text-blue-900">
@@ -36,136 +19,18 @@ const CadastroEmpresa = ({onChange}: {onChange: (data:any) => void}) => {
       </div>
 
       <div className="flex flex-wrap p-2 mt-2 text-sm gap-10">
-        <div className="flex flex-col w-60">
-          <span className="font-bold">CNPJ</span>
-          <input 
-            type="text" 
-            className="rounded p-1" 
-            value={formData.cnpj}
-            name="cnpj"
-            onChange={handleChange} 
-          />
-        </div>
-        <div className="flex flex-col w-60">
-          <span className="font-bold">Nome</span>
-          <input 
-            type="text" 
-            className="rounded p-1" 
-            value={formData.nome} 
-            name="nome"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex flex-col w-60">
-          <span className="font-bold">Nome Fantasia</span>
-          <input 
-            type="text" 
-            className="rounded p-1" 
-            value={formData.nomeFantasia} 
-            name="nomeFantasia"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex flex-col w-60">
-          <span className="font-bold">Contato</span>
-          <input 
-            type="text" 
-            className="rounded p-1" 
-            value={formData.contato} 
-            name="contato"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex flex-col w-60">
-          <span className="font-bold">Email</span>
-          <input 
-            type="email" 
-            className="rounded p-1" 
-            value={formData.email} 
-            name="email"
-            onChange={handleChange} 
-          />
-        </div>
-        <div className="flex flex-col w-60">
-          <span className="font-bold">CEP</span>
-          <input 
-            type="text" 
-            className="rounded p-1" 
-            value={formData.cep} 
-            name="cep"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex flex-col w-60">
-          <span className="font-bold">País</span>
-          <input 
-            type="text" 
-            className="rounded p-1" 
-            value={formData.pais} 
-            name="pais"
-            onChange={handleChange} 
-          />
-        </div>
-        <div className="flex flex-col w-60">
-          <span className="font-bold">Estado</span>
-          <input 
-            type="text" 
-            className="rounded p-1" 
-            value={formData.estado} 
-            name="estado"
-            onChange={handleChange} 
-          />
-        </div>
-        <div className="flex flex-col w-60">
-          <span className="font-bold">Cidade</span>
-          <input 
-            type="text" 
-            className="rounded p-1" 
-            value={formData.cidade} 
-            name="cidade"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex flex-col w-60">
-          <span className="font-bold">Bairro</span>
-          <input 
-            type="text" 
-            className="rounded p-1" 
-            value={formData.bairro} 
-            name="bairro"
-            onChange={handleChange} 
-          />
-        </div>
-        <div className="flex flex-col w-96">
-          <span className="font-bold">Rua</span>
-          <input 
-            type="text" 
-            className="rounded p-1" 
-            value={formData.rua} 
-            name="rua"
-            onChange={handleChange} 
-          />
-        </div>
-        <div className="flex flex-col w-60">
-          <span className="font-bold">Numero</span>
-          <input 
-            type="number" 
-            className="rounded p-1" 
-            value={formData.numero} 
-            name="numero"
-            onChange={handleChange} 
-          />
-        </div>
-        <div className="flex flex-col w-60">
-          <span className="font-bold">Complemento</span>
-          <input 
-            type="text" 
-            className="rounded p-1" 
-            value={formData.complemento} 
-            name="complemento"
-            onChange={handleChange} 
-          />
-        </div>
+        {Object.entries(formData).map(([key, value]) => (
+          <div key={key} className={`flex flex-col text-xs ${key === "rua" ? "w-[500px]" : "w-60"}`}>
+            <label className="block capitalize font-bold">{key.replace(/([A-Z])/g, " $1")}</label>
+            <input
+              type={key === "email" ? "email" : "text"}
+              className="p-1 w-full rounded"
+              value={value}
+              onChange={(e) => setFormData({ ...formData, [key]: e.target.value })}
+            />
+            {errors[key] && <p className="text-red-500 text-sm">{errors[key]}</p>}
+          </div>
+        ))}
       </div>
     </form>
   )
