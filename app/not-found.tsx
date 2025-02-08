@@ -1,16 +1,19 @@
 import Image from 'next/image'
-import Link from 'next/link'
-import breve from "./assets/breve.jpg"
+import breve from "./assets/icon.png"
+import Layout from './components/Layout/Layout'
  
 export default function NotFound() {
   return (
-    <div className='flex flex-col w-full h-screen p-10'>
-      <div className='flex relative w-full h-full'>
-        <Image src={breve} fill alt='Em breve' />
+    <Layout>
+      <div className='flex flex-col justify-center items-center w-full h-screen p-10'>
+        <div className='flex'>
+          <Image src={breve} width={100} height={100} alt='Em breve' />
+        </div>
+        <div className='flex flex-col justify-center mt-2 text-blue-900 items-center'>
+          <p>Em desenvolvimento.</p>
+          <p>Agradecemos a compreensão!</p>
+        </div>
       </div>
-      <div className='flex justify-center items-center -mt-20 z-10'>
-        <Link href="/" className='p-6 rounded bg-emerald-400 text-zinc-300'>Return Home</Link>
-      </div>
-    </div>
+    </Layout>
   )
 }
