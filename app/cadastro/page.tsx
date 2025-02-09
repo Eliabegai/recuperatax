@@ -27,6 +27,8 @@ const Cadastro = () => {
 
   const router = useRouter()
 
+  const [errors, setErrors] = useState<{[key: string]:string}>({});
+  
   const [formData, setFormData] = useState<IFormData>({
     cnpj: "",
     nome: "",
@@ -42,8 +44,6 @@ const Cadastro = () => {
     numero: "",
     complemento: ""
   })
-  
-  const [errors, setErrors] = useState<{[key: string]:string}>({});
 
   const validate = () => {
     const newErrors: { [key: string]: string } = {};

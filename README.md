@@ -29,7 +29,7 @@ npm install
 Antes de rodar o frontend, é necessário iniciar o JSON Server:
 
 ```sh
-npm install -g json-server //caso não tenha instalado
+npm install -g json-server@0.17.0 //caso não tenha instalado
 json-server --watch db.json --port 3001
 or
 npm run server
