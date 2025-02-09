@@ -9,7 +9,20 @@ Ele depende de um ```JSON Server``` para fornecer alguns dados simulados.
 - ```JSON Server```
 - ```TailwindCSS```
 
+## Estrutura do Projeto
 
+```
+📦 recuperatax-ui
+│   
+├── 📂 src            # Código-fonte do React
+│   ├── assets        # Arquivos utilizados na aplicação
+│   ├── components    # Componentes reutilizáveis
+│   ├── layout        # Página layout da aplicação
+│   ├── [routes]      # Rotas da aplicação
+│   └── ├── pages     # Páginas da aplicação
+├── db.json           # Arquivo com os dados da API
+└── README.md         # Documentação do projeto
+```
 
 ## Como Rodar o Projeto
 ### Clonar o Repositório
