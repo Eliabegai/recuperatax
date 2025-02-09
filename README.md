@@ -63,7 +63,7 @@ Agora, o projeto estará disponível em `http://localhost:3000`.
 ![Sidebar](/public/Sidebar.png)
 
 ### Cadastro Empresas
-![Cadastro Empresas](/public/Cadastro.png)
+![Cadastro Empresas](/public/CadastroEmpresa.png)
 
 ### Planilhas
 ![Planilhas](/public/Planilhas.png)
