@@ -69,6 +69,9 @@ Agora, o projeto estará disponível em `http://localhost:3000`.
 ### Tela de Login
 ![Tela de Login](/public/Login.png)
 
+Usuário para teste: admin
+Senha: admin
+
 ### Empresas
 ![Empresas](/public/Empresas.png)
 

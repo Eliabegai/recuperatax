@@ -45,7 +45,7 @@ const Login = () => {
     <div className="flex flex-col w-full h-screen bg-gray-300 justify-center items-center">
       <div className="flex flex-col w-[500px] h-[500px] justify-center items-center p-4 bg-gray-100 rounded-lg shadow-xl">
         <div className="flex flex-col justify-center items-center mb-10">
-          <div className="flex relative w-72 h-20">
+          <div className="flex relative w-96 h-20">
             <Image src={Logo} alt="logo" fill />
           </div>
           <span className="text-xl text-sky-700 mt-2">Seja bem vindo!</span>
@@ -79,8 +79,8 @@ const Login = () => {
         </div>
         <div className="flex flex-row w-full justify-between items-center px-6">
           <span>
-            <input name="remember" type="checkbox" onChange={handleChange} />
-            <span>Lembrar de mim</span>
+            <input name="remember" type="checkbox" onChange={handleChange} className="bg-gray-600" />
+            <span className="ml-1">Lembrar de mim</span>
           </span>
           <span>
             <Link rel="stylesheet" href="/login">Esqueci minha senha</Link>

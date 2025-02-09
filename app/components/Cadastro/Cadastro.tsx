@@ -12,15 +12,15 @@ interface FormularioProps {
 const CadastroEmpresa = ({ formData, setFormData, errors }: FormularioProps) => {
 
   return (
-    <form className="flex flex-col w-full bg-gray-100 p-4 rounded text-blue-900">
-      <div className="flex gap-4 text-sm">
+    <form className="flex flex-col w-full h-96 bg-gray-100 p-4 rounded text-blue-900">
+      <div className="flex gap-4 items-start text-sm">
         <span className="border-b-2 border-emerald-500">Dados Gerais</span>
         <span>Filiais</span>
       </div>
 
-      <div className="flex flex-wrap p-2 mt-2 text-sm gap-10">
+      <div className="flex flex-wrap justify-items-start just items-center h-full p-4 mt-4 text-sm gap-6">
         {Object.entries(formData).map(([key, value]) => (
-          <div key={key} className={`flex flex-col text-xs ${key === "rua" ? "w-[500px]" : "w-60"}`}>
+          <div key={key} className={`flex flex-col text-xs ${key === "rua" ? "w-[700px]" : "w-96"} `}>
             <label className="block capitalize font-bold">{key.replace(/([A-Z])/g, " $1")}</label>
             <input
               type={key === "email" ? "email" : "text"}
