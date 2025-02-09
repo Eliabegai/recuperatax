@@ -95,7 +95,7 @@ const Sidebar = () => {
         menu.map((i, index) => (
 
           openSidebar ? 
-            <Link key={index} href={`/${i.menu}`}  className="flex w-30 p-3 bg-sky-800 hover:bg-sky-950">
+            <Link key={index} href={`/${i.menu}`}  className="flex w-30 p-3 bg-sky-900 hover:bg-sky-950">
               {
                 i.icon
               }
@@ -108,7 +108,7 @@ const Sidebar = () => {
                 href={`/${i.menu}`}
                 className="flex w-full justify-between items-center hover:bg-sky-950 focus:text-emerald-600 hover:text-emerald-500"
               >
-                <div className="flex w-30 p-3 bg-sky-800 hover:bg-sky-950">{i?.icon}</div>
+                <div className="flex w-30 p-3 bg-sky-900 hover:bg-sky-950">{i?.icon}</div>
                 <div key={index} className="flex flex-1 justify-between items-center space-x-3 p-3 hover:bg-sky-950">
                   <span>{i?.span}</span>
                 { i?.subItens ? (
